@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root,
+* {
+  box-sizing: border-box;
+}
+#app {
+  grid-template-rows: auto 1fr auto;
+}
+input {
+  outline: none;
+  margin-block: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+main {
+  grid-template-rows: auto 1fr;
+}
+#item-list > div:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+/* capitalize the first letter of each chile of the ToDoTile */
+#ToDoTile > *:first-letter {
+  text-transform: capitalize;
+}

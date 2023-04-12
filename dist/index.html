@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body class="box-border m-0 p-0">
+    <div id="app" class="grid grid-cols-12 h-screen w-screen">
+      <header
+        class="bg-slate-800 p-12 flex justify-start text-white col-start-1 col-span-full row-start-1 row-span-1"
+      >
+        <!-- an icon -->
+        <h1 class="text-5xl font-bold text-whitede">Todo List</h1>
+        <!-- a button for adding a new todo -->
+        <button
+          class="p-x-8 p-y-4 rounded-md bg-slate-400 hover:bg-slate-600 ml-4"
+          id="addTodo"
+        >
+          New Task
+        </button>
+      </header>
+      <aside class="row-start-2 col-start-1 col-span-2 bg-slate-400 grid
+        <!-- a list of todos -->
+        <ul class="todos"></ul>
+      </aside>
+      <main class="row-start-2 col-start-3 col-span-full bg-slate-300 grid text-slate-800 grid-cols-12">
+        <!-- h2 title for the todo list area -->
+        <h2 class="col-start-1 col-span-full row-start-1 row-span-1 text-3xl font-bold p-3">
+          Active Tasks
+        </h2>
+        <!-- a Div to hold the list of active items in the list -->
+        <div
+          class="col-start-1 col-span-full row-start-2 row-span-1 grid p-6 auto-rows-min"
+          id="todo-list"
+        >
+        <div id="example" class="grid grid-cols-4 gap-4 p-4 border-2 border-black rounded-md my-4">
+          <h3 class="text-2xl font-bold">Title</h3>
+          <p class="text-lg">Description</p>
+          <p class="text-lg">Due Date</p>
+          <p class="text-lg">Priority</p>
+        </div>
+      </div>
+      
+      </main>
+      <footer
+        class="col-span-full row-start-3 h-12 py-8 bg-slate-700 text-white text-2xl flex justify-center items-center"
+      >
+        <!-- a copyright disclaimer that this page was made by Andrew Cichewicz, followed by a github link -->
+        <p>
+          &copy; 2021 Andrew Cichewicz
+          <a href="https://github.com/APCichewicz"></a>
+        </p>
+      </footer>
+      <div
+        class="absolute top-0 left-0 h-screen w-screen bg-slate-700 opacity-60 flex justify-center items-center hidden"
+        id="form-container"
+      >
+        <!-- a form for adding a new todo, accepts a Title, description, due date, and priority from 1-5 -->
+        <form
+          class="grid p-8 bg-white text-lg font-semibold"
+          novalidate
+          id="toDoForm"
+        >
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" required />
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" required />
+          <label for="dueDate">Due Date</label>
+          <input type="date" name="dueDate" id="dueDate" required />
+          <label for="priority">Priority</label>
+          <!-- the priority will be a select with 5 values 1-g -->
+          <select name="priority" id="priority" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button
+            class="p-x-4 p-y-4 rounded-sm bg-slate-400 hover:bg-slate-600 mt-4"
+            type="submit"
+          >
+            Add Todo
+          </button>
+        </form>
+      </div>
+      <script src="bundle.js"></script>
+        </body>
+    </div>
+</html>
