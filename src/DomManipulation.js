@@ -60,8 +60,7 @@ class DOMManipulation {
       "p-4",
       "border-2",
       "border-black",
-      "rounded-md",
-      "my-4"
+      "rounded-md"
     );
     console.log("renderNode called ${root}");
     this.app.querySelector("#todo-list").appendChild(root);

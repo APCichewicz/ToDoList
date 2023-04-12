@@ -15,7 +15,7 @@
         <h1 class="text-5xl font-bold text-whitede">Todo List</h1>
         <!-- a button for adding a new todo -->
         <button
-          class="p-x-8 p-y-4 rounded-md bg-slate-400 hover:bg-slate-600 ml-4"
+          class="px-8 py-4 rounded-md bg-slate-400 hover:bg-slate-600 ml-4"
           id="addTodo"
         >
           New Task
@@ -35,12 +35,6 @@
           class="col-start-1 col-span-full row-start-2 row-span-1 grid p-6 auto-rows-min"
           id="todo-list"
         >
-        <div id="example" class="grid grid-cols-4 gap-4 p-4 border-2 border-black rounded-md my-4">
-          <h3 class="text-2xl font-bold">Title</h3>
-          <p class="text-lg">Description</p>
-          <p class="text-lg">Due Date</p>
-          <p class="text-lg">Priority</p>
-        </div>
       </div>
       
       </main>
@@ -54,12 +48,12 @@
         </p>
       </footer>
       <div
-        class="absolute top-0 left-0 h-screen w-screen bg-slate-700 opacity-60 flex justify-center items-center hidden"
+        class="absolute top-0 left-0 h-screen w-screen bg-slate-800 bg-opacity-80 flex justify-center items-center hidden"
         id="form-container"
       >
         <!-- a form for adding a new todo, accepts a Title, description, due date, and priority from 1-5 -->
         <form
-          class="grid p-8 bg-white text-lg font-semibold"
+          class="grid p-8 bg-white text-lg font-semibold bg-opacity-100 rounded-md"
           novalidate
           id="toDoForm"
         >
@@ -79,7 +73,7 @@
             <option value="5">5</option>
           </select>
           <button
-            class="p-x-4 p-y-4 rounded-sm bg-slate-400 hover:bg-slate-600 mt-4"
+            class="px-4 py-2 bg-green-400 hover:bg-green-600 mt-4 rounded-md"
             type="submit"
           >
             Add Todo
