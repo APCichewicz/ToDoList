@@ -6,37 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body class="box-border m-0 p-0">
-    <div id="app" class="grid grid-cols-12 h-screen w-screen">
+  <body class="box-border m-0 p-0 max-h-screen overflow-hidden">
+    <div id="app" class="grid grid-cols-12 h-screen max-h-screen w-screen">
       <header
         class="bg-slate-800 p-12 flex justify-start text-white col-start-1 col-span-full row-start-1 row-span-1"
       >
-        <!-- an icon -->
         <h1 class="text-5xl font-bold text-whitede">Todo List</h1>
-        <!-- a button for adding a new todo -->
+      </header>
+      <aside
+        class="row-start-2 col-start-1 col-span-2 bg-slate-400 grid text-slate-800 max-h-full overflow-auto"
+      >
+        <!-- h2 title for the project list area -->
+        <h2
+          id="project-title"
+          class="col-start-1 col-span-full row-start-1 row-span-1 text-3xl font-bold p-3"
+        >
+          Projects
+        </h2>
+        <!-- a Div to hold the list of projects -->
+        <div
+          class="col-start-1 col-span-full row-start-2 row-span-1 grid auto-rows-min overflow-y-auto h-full max-h-full"
+          id="project-area"
+        ></div>
+        <div
+          id="newProj"
+          class="justify-self-center bg-green-400 hover:bg-green-600 rounded-2xl text-2xl font-extrabold w-8 h-8 flex justify-center items-center pb-1 hover:cursor-pointer"
+        >
+          +
+        </div>
+      </aside>
+      <main
+        class="relative row-start-2 col-start-3 col-span-full bg-slate-300 grid text-slate-800 grid-cols-12 grid-rows-6 max-h-full"
+      >
+        <div class="col-start-1 col-span-full grid grid-cols-2">
+          <!-- h2 title for the todo list area -->
+          <h2
+            id="list-title"
+            class="col-start-1 col-span-1 row-start-1 row-span-1 text-3xl font-bold p-3"
+          >
+            Active Tasks
+          </h2>
+          <!-- a div to hod the delete icon -->
+          <div class="grid">
+            <img
+              id="delete"
+              src="../src/resources/delete.svg"
+              alt="Delete Icon"
+              class="w-20 h-20 place-self-center justify-self-end mr-8 hover:scale-105"
+            />
+          </div>
+        </div>
+        <!-- a Div to hold the list of active items in the list -->
+        <div
+          class="col-start-1 col-span-full row-start-2 row-span-4 grid p-6 auto-rows-min max-h-full overflow-auto grid-cols-2 gap-4"
+          id="list-area"
+        ></div>
         <button
-          class="px-8 py-4 rounded-md bg-slate-400 hover:bg-slate-600 ml-4"
-          id="addTodo"
+          id="new-task"
+          class="row-start-[-2] col-start-[-3] col-span-2 rounded-lg bg-blue-600 hover:bg-blue-800 border-3 border-black m-4 text-white text-2xl text-semibold"
         >
           New Task
         </button>
-      </header>
-      <aside class="row-start-2 col-start-1 col-span-2 bg-slate-400 grid
-        <!-- a list of todos -->
-        <ul class="todos"></ul>
-      </aside>
-      <main class="row-start-2 col-start-3 col-span-full bg-slate-300 grid text-slate-800 grid-cols-12">
-        <!-- h2 title for the todo list area -->
-        <h2 class="col-start-1 col-span-full row-start-1 row-span-1 text-3xl font-bold p-3">
-          Active Tasks
-        </h2>
-        <!-- a Div to hold the list of active items in the list -->
-        <div
-          class="col-start-1 col-span-full row-start-2 row-span-1 grid p-6 auto-rows-min"
-          id="todo-list"
-        >
-      </div>
-      
       </main>
       <footer
         class="col-span-full row-start-3 h-12 py-8 bg-slate-700 text-white text-2xl flex justify-center items-center"
@@ -46,10 +76,11 @@
           &copy; 2021 Andrew Cichewicz
           <a href="https://github.com/APCichewicz"></a>
         </p>
+        NewProject
       </footer>
       <div
         class="absolute top-0 left-0 h-screen w-screen bg-slate-800 bg-opacity-80 flex justify-center items-center hidden"
-        id="form-container"
+        id="addTodoModal"
       >
         <!-- a form for adding a new todo, accepts a Title, description, due date, and priority from 1-5 -->
         <form
@@ -72,15 +103,44 @@
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
+          <div id="buttons" class="grid grid-cols-2 gap-2">
+            <button
+              class="px-4 py-2 bg-green-400 hover:bg-green-600 mt-4 rounded-md"
+              type="submit"
+            >
+              Add Todo
+            </button>
+            <button
+              type="reset"
+              class="px-4 py-2 bg-red-400 hover:bg-red-600 mt-4 rounded-md"
+            >
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        id="addProjectModal"
+        class="absolute top-0 left-0 h-screen w-screen bg-slate-800 bg-opacity-80 flex justify-center items-center hidden"
+      >
+        <!-- a form for adding a new project, accepts a project name, and contains a button to submit -->
+        <form
+          class="grid p-8 bg-white text-lg font-semibold bg-opacity-100 rounded-md"
+          novalidate
+          id="projectForm"
+        >
+          <label for="projectName">Project Name</label>
+          <input type="text" name="projectName" id="projectName" required />
           <button
+            id="addProject"
             class="px-4 py-2 bg-green-400 hover:bg-green-600 mt-4 rounded-md"
             type="submit"
           >
-            Add Todo
+            Add Project
           </button>
         </form>
       </div>
       <script src="bundle.js"></script>
-        </body>
     </div>
+  </body>
 </html>

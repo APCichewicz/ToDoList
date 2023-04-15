@@ -7,6 +7,8 @@
 }
 #app {
   grid-template-rows: auto 1fr auto;
+  max-height: 100vh;
+  overflow: hidden;
 }
 input {
   outline: none;
@@ -17,6 +19,7 @@ input {
 }
 main {
   grid-template-rows: auto 1fr;
+  overflow: auto;
 }
 #ToDoTile:nth-of-type(odd) {
   background-color: #f5f5f5;
@@ -25,4 +28,20 @@ main {
 #ToDoTile > *:first-letter {
   text-transform: capitalize;
   border-collapse: collapse;
+}
+aside {
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content;
+  grid-gap: 0.5rem;
+  max-height: 100%;
+}
+.completed {
+  text-decoration: line-through;
+  grid-column-start: 2;
+}
+#project-area {
+  grid-gap: 0.5rem;
+}
+.tbd {
+  grid-column-start: 1;
 }

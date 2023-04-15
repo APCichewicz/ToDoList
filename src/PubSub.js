@@ -5,6 +5,7 @@ class PubSub {
     this.events = {};
   }
 
+  // register callbacks to a specific event
   subscribe(event, callback) {
     let self = this;
     if (!self.events.hasOwnProperty(event)) {
@@ -12,7 +13,7 @@ class PubSub {
     }
     return self.events[event].push(callback);
   }
-
+  // on event, call all the callbacks registered to that event
   publish(event, data = {}) {
     let self = this;
     if (!self.events.hasOwnProperty(event)) {

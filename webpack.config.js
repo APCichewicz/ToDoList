@@ -25,6 +25,11 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
+      // handle json
+      {
+        test: /\.json$/i,
+        type: "json",
+      },
     ],
   },
 };
